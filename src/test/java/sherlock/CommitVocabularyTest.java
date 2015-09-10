@@ -28,5 +28,6 @@ public class CommitVocabularyTest {
 				"mutator", "parameter", "path", "subscription", "zone", "plus", "two", "a45", "o98", "42"),
 			CommitVocabulary.commitVocabularyFrom(sets)
 		);
+		System.out.println(CommitVocabulary.commitVocabularyFrom(sets));
 	}
 }

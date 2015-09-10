@@ -14,7 +14,7 @@ public class CommitVocabulary {
 	}
 
 	public static Set<String> commitVocabularyFrom(Set<Set<String>> wordSets) {
-		return wordSets.stream()
+		return wordSets.parallelStream()
 			.map(CommitVocabulary::enrich)
 			.reduce(CommitVocabulary::join)
 			.get();
@@ -30,7 +30,8 @@ public class CommitVocabulary {
 		Set<String> words = new HashSet<>();
 		StringBuilder sb = new StringBuilder();
 		boolean previousUpperCase = false;
-		boolean upperCase = false;
+		boolean upperCase;
+
 		for (int i = 0; i < word.length(); i++) {
 			char c = word.charAt(i);
 			upperCase = isUpperCase(c);
@@ -54,7 +55,7 @@ public class CommitVocabulary {
 	}
 
 	private static Set<String> join(Set<String> set1, Set<String> set2) {
-		Set<String> joined = new TreeSet<String>(set1);
+		Set<String> joined = new TreeSet<>(set1);
 		joined.addAll(set2);
 		return joined;
 	}
