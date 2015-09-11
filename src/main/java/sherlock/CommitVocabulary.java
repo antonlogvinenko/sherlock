@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.lang.Character.isUpperCase;
+import static java.lang.Character.toLowerCase;
 
 public class CommitVocabulary {
 
@@ -39,11 +40,11 @@ public class CommitVocabulary {
 				String finished = sb.toString();
 				if (!finished.isEmpty()) {
 					words.add(finished);
+					sb = new StringBuilder();
 				}
-				sb = new StringBuilder();
 			}
 			if (c != '_' && c != '-')
-				sb.append(Character.toLowerCase(c));
+				sb.append(toLowerCase(c));
 
 			if (i == word.length() - 1 && sb.length() != 0)
 				words.add(sb.toString());
