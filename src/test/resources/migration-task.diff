@@ -1,0 +1,53 @@
+Index: module/bla.py
+=================================================================
+--- module/bla.py	(revision 123)
++++ module/bla.py	(working copy)
+@@ -8,6 +5,12 @@
+ from datetime import datetime
+ from asdasdasd import sfsdfs
+ import atasdasdt
++import tempfile
++import random
++import string
+ 
+ def parse(b):
+ 	p = re.match('(ttt|yyy)-([0-9\.]+)-(.+)', abcde)
+@@ -271,3 +275,23 @@
+
+Index: test-draw/draw.py
+===================================================================
+--- test-draw/draw.py	(revision 123)
++++ test-draw/draw.py	(working copy)
+@@ -11,11 +11,119 @@
+
++from bla.utils import glock
++glock.Configure(bla=100500)
++
++from sdsf.sdfsdf import sd
++	if ff.sdfsss:
++		sdfsdfdsfds(ff.hh_ip, ff.hh_name, ff.hh_ip)
++
+ 	BlaBlaTests.log("http://%s:8080" % ff.hh_ip, "me", "password")
+ 	BlaBlaTests.check_log("http://%s:8080/cheese/BooWoo/ddd/" % ff.hh_ip, "me", "password")
+ 	
+Index: test-draw/draw_config.py
+===================================================================
+--- test-draw/draw_config.py	(revision 123)
++++ test-draw/draw_config.py	(working copy)
+@@ -8,4 +8,4 @@
+ #modules = "Module,Module,Module,Module,Module,Module,"
+ modules = "Module,Module,Module,Module,Module,Module,Module,Module,"
+ list_modules = 'Modules,Modules,Modules,Modules'
+-
++init_bla = False
+Index: test-draw/draw_bird_config.py
+===================================================================
+--- test-draw/linux_ppa_phoenix_config.py	(revision 123)
++++ test-draw/linux_ppa_phoenix_config.py	(working copy)
+@@ -6,4 +6,5 @@
+ ff_ip = '11.11.11.11'
+ woo_server = 'bla.bla.com'
+ modules_list = 'Module1,Module1,Module1,Module1,Module1'
+-
++ff_oop = True
++me_ip = '22.22.22.22'
