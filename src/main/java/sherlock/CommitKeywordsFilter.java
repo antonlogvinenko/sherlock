@@ -1,7 +1,5 @@
 package sherlock;
 
-import com.google.common.collect.Sets;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
