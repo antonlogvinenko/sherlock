@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
 
-import static com.google.common.collect.Sets.newHashSet;
+import static java.util.Arrays.stream;
 
 public class CommitKeywordsFilter implements Predicate<String> {
 
@@ -19,12 +19,11 @@ public class CommitKeywordsFilter implements Predicate<String> {
 				new InputStreamReader(
 					this.getClass().getClassLoader().getResourceAsStream("keywords.txt")))) {
 
-				String line;
-				while ((line = keywordsReader.readLine()) != null) {
-					if (!line.isEmpty() && !line.startsWith("#")) {
-						keywords.addAll(newHashSet(line.split("\\s")));
-					}
-				}
+				keywordsReader
+					.lines()
+					.filter(line -> !line.isEmpty() && !line.startsWith("#"))
+					.flatMap(line -> stream(line.split("\\s")))
+					.forEach(keywords::add);
 			}
 		} catch (IOException e) {
 			throw new RuntimeException(e);

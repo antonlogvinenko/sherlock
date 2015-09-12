@@ -11,6 +11,7 @@ import static java.lang.Character.isLetterOrDigit;
 import static java.lang.Character.isUpperCase;
 import static java.lang.Character.toLowerCase;
 import static java.util.Arrays.stream;
+import static java.util.stream.Stream.concat;
 
 public class CommitSignificantContent {
 
@@ -30,7 +31,7 @@ public class CommitSignificantContent {
 				.filter(line -> !line.isEmpty());
 
 			//Add file path as words
-			return Stream.concat(significantLines, stream(pathParts));
+			return concat(significantLines, stream(pathParts));
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
