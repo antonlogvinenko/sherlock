@@ -1,4 +1,4 @@
-package sherlock;
+package sherlock.commit;
 
 import java.io.*;
 import java.util.Iterator;
@@ -68,7 +68,7 @@ public class CommitParser {
 		}
 	}
 
-	public Stream<String> getCommits() {
+	public Stream<String> getCommitChunks() {
 		Spliterator<String> sp = spliteratorUnknownSize(new Iterator<String>() {
 
 			private String next = readNext();

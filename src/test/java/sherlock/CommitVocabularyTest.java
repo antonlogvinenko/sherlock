@@ -1,5 +1,7 @@
 package sherlock;
 
+import sherlock.commit.CommitVocabulary;
+
 import java.util.HashSet;
 import java.util.Set;
 

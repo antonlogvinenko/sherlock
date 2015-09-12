@@ -1,5 +1,7 @@
 package sherlock;
 
+import sherlock.commit.CommitKeywordsFilter;
+
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 

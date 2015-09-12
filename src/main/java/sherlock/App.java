@@ -1,5 +1,7 @@
 package sherlock;
 
+import sherlock.commit.CommitKeywordsFilter;
+
 import java.io.IOException;
 
 public class App {

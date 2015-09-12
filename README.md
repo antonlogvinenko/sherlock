@@ -5,6 +5,7 @@ From commits
 - extract commits from repository
 - [DONE] list of chunks
 - list of typed chunks with significant lines
+- list of typed chunks with significant words
 - [DONE] set of insignificant words (keywords)
 - [DONE] enriched vocabulary - enriched and joined set for commit
 - get map <author, set<word>>

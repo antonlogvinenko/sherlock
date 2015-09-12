@@ -1,4 +1,4 @@
-package sherlock;
+package sherlock.commit;
 
 import java.util.HashSet;
 import java.util.Set;

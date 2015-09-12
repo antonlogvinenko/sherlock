@@ -1,4 +1,4 @@
-package sherlock;
+package sherlock.commit;
 
 import java.io.BufferedReader;
 import java.io.IOException;
