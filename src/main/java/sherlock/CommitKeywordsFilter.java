@@ -28,7 +28,6 @@ public class CommitKeywordsFilter {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		System.out.println(keywords);
 	}
 
 

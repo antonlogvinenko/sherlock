@@ -13,5 +13,13 @@ public class KeywordFilterTest {
 		assertTrue(f.filter("DnsBean"));
 		assertTrue(f.filter("keywords"));
 		assertTrue(f.filter("ipAddress"));
+
+		assertFalse(f.filter("coproc"));
+		assertFalse(f.filter("typename"));
+		assertFalse(f.filter("extern"));
+		assertFalse(f.filter("die()"));
+		assertFalse(f.filter("typeof"));
+		assertFalse(f.filter("lambda"));
+		assertFalse(f.filter("strictfp"));
 	}
 }
