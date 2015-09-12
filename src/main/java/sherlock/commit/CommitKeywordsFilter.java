@@ -5,10 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Predicate;
 
 import static com.google.common.collect.Sets.newHashSet;
 
-public class CommitKeywordsFilter {
+public class CommitKeywordsFilter implements Predicate<String> {
 
 	private static final Set<String> keywords = new HashSet<>();
 
@@ -30,8 +31,8 @@ public class CommitKeywordsFilter {
 		}
 	}
 
-
-	public boolean filter(String word) {
+	@Override
+	public boolean test(String word) {
 		return !keywords.contains(word);
 	}
 }

@@ -9,12 +9,12 @@ import static com.google.common.io.Closeables.closeQuietly;
 import static java.util.Spliterators.spliteratorUnknownSize;
 import static java.util.stream.StreamSupport.stream;
 
-public class CommitParser {
+public class Commit {
 
 	private final BufferedReader bis;
 	private StringBuilder header = new StringBuilder();
 
-	public CommitParser(InputStream is) {
+	public Commit(InputStream is) {
 		this.bis = new BufferedReader(new InputStreamReader(is));
 		readHeader();
 	}
