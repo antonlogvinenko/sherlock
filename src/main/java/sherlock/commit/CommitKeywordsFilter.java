@@ -14,17 +14,15 @@ public class CommitKeywordsFilter implements Predicate<String> {
 	private static final Set<String> keywords = new HashSet<>();
 
 	public CommitKeywordsFilter() {
-		try {
-			try (BufferedReader keywordsReader = new BufferedReader(
-				new InputStreamReader(
-					this.getClass().getClassLoader().getResourceAsStream("keywords.txt")))) {
+		try (BufferedReader keywordsReader = new BufferedReader(
+			new InputStreamReader(
+				this.getClass().getClassLoader().getResourceAsStream("keywords.txt")))) {
 
-				keywordsReader
-					.lines()
-					.filter(line -> !line.isEmpty() && !line.startsWith("#"))
-					.flatMap(line -> stream(line.split("\\s")))
-					.forEach(keywords::add);
-			}
+			keywordsReader
+				.lines()
+				.filter(line -> !line.isEmpty() && !line.startsWith("#"))
+				.flatMap(line -> stream(line.split("\\s")))
+				.forEach(keywords::add);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
