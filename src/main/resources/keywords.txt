@@ -1,0 +1,9 @@
+#Java
+this abstract class interface extends implements super const enum new import
+private public package protected synchronized throws default
+static final volatile strictfp transient
+try finally catch throw
+int long byte char float double short boolean void
+return continue break if else for while do goto switch case
+instanceof assert
+** *** ****
