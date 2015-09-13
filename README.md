@@ -8,9 +8,9 @@ From commits
 - [DONE] list of typed chunks with significant words
 - [DONE] set of insignificant words (keywords)
 - [DONE] enriched vocabulary - enriched and joined set for commit
-- get commits in range
-- for each commit in range get author and submit fetched InputStream to another pool
-- get map <author, set<word>>
+- [DONE] get commits in range
+- [DONE] for each commit in range get author and submit fetched InputStream to another pool
+- [DONE] get map <author, set<word>>
 
 From error log
 - download log file
