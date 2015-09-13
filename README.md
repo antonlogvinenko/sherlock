@@ -12,14 +12,17 @@ From commits
 - [DONE] for each commit in range get author and submit fetched InputStream to another pool
 - [DONE] get map <author, set<word>>
 
+Prototype:
+- [DONE] build vocabulary for error log
+- [DONE] make jar binary with maven, accept parameters from console
+- intersect commits/error
+- find metric to sort most dangerous commits
+- authentication support
+- try to use this tool, make observations
+
 From error log
 - download log file
 - learn to find lines with possible errors, extract several next lines
-- build vocabulary for error log
-
-Core
-- intersect commits/error
-- find metric to sort most dangerous commits
 
 Improvements (not critical)
 - set of insignificant words per language

@@ -1,4 +1,4 @@
-package sherlock;
+package sherlock.commit;
 
 import org.junit.Test;
 

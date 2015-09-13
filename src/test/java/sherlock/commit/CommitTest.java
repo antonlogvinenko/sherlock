@@ -1,9 +1,7 @@
-package sherlock;
+package sherlock.commit;
 
 import org.junit.Test;
-import sherlock.commit.Commit;
-import sherlock.commit.CommitKeywordsFilter;
-import sherlock.commit.CommitSignificantContent;
+import sherlock.App;
 
 import java.util.Set;
 

@@ -1,7 +1,6 @@
-package sherlock;
+package sherlock.commit;
 
 import org.junit.Test;
-import sherlock.commit.CommitSignificantContent;
 
 import java.io.*;
 import java.util.HashSet;

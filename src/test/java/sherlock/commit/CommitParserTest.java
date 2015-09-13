@@ -1,7 +1,6 @@
-package sherlock;
+package sherlock.commit;
 
 import org.junit.Test;
-import sherlock.commit.Commit;
 
 import java.io.IOException;
 import java.io.InputStream;

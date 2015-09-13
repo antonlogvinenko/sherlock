@@ -27,16 +27,27 @@ public class Repository {
 	}
 
 	private final String repository;
+	private String username;
+	private String password;
+	private final Set<String> ignoreUsers;
 
-	public Repository(String repository) {
+	public Repository(String repository, String username, String password) {
+		this(repository, username, password, null);
+	}
+
+	public Repository(String repository, String username, String password, Set<String> ignoreUsers) {
 		this.repository = repository;
+		this.username = username;
+		this.password = password;
+		this.ignoreUsers = ignoreUsers;
 	}
 
 	public Map<String, CommitDetails> getCommitsVocabulary(String commit1, String commit2) {
 		try {
 			commit2 = commit2 == null || commit2.isEmpty() ? "HEAD" : commit2;
 
-			String infoCmd = format("svn log -r %s:%s %s", commit1, commit2, repository);
+			String infoCmd = format("svn log --username %s --password %s -r %s:%s %s",
+				username, password, commit1, commit2, repository);
 			Process p = getRuntime().exec(infoCmd);
 
 			//r12345 -> author
@@ -46,9 +57,14 @@ public class Repository {
 
 			List<String> commitNumbers = new ArrayList<>(commits.keySet());
 			for (int i = 0; i < commitNumbers.size() - 1; i++) {
+				String author = commits.get(commitNumbers.get(i + 1));
+				if (ignoreUsers != null && ignoreUsers.contains(author)) {
+					continue;
+				}
 				String from = commitNumbers.get(i);
 				String to = commitNumbers.get(i + 1);
-				String cmd = format("svn diff -r %s:%s %s", from, to, repository);
+				String cmd = format("svn diff --username %s --password %s -r %s:%s %s",
+					username, password, from, to, repository);
 				p = getRuntime().exec(cmd);
 				Set<String> words = new Commit(p.getInputStream())
 					.getCommitChunks()

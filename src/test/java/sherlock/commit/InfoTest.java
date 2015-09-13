@@ -1,6 +1,7 @@
-package sherlock;
+package sherlock.commit;
 
 import org.junit.Test;
+import sherlock.App;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
