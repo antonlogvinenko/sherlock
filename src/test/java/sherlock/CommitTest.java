@@ -16,7 +16,6 @@ public class CommitTest {
 	@Test
 	public void testCommit() {
 		Commit commit = new Commit(App.class.getClassLoader().getResourceAsStream("commit.diff"));
-		CommitKeywordsFilter keywordsFilter = new CommitKeywordsFilter();
 
 		Set<String> vocabulary = commit
 			.getCommitChunks()

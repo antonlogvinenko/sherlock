@@ -1,0 +1,17 @@
+------------------------------------------------------------------------
+r9800 | ollydbg | 2014-06-15 15:22:20 +0400 (Sun, 15 Jun 2014) | 1 line
+
+* todo list plugin: use the second kind of constructor of wxCombobox, as it can given a wxArrayString reference, no hard-coded number is needed.
+------------------------------------------------------------------------
+r9801 | ollydbg | 2014-06-15 15:22:58 +0400 (Sun, 15 Jun 2014) | 1 line
+
+* todo list plugin: disable refresh the list on double click. When user double click on a todo list item, it will move the caret to the source location, since the source file is already parsed, we don't need to parse it again.
+------------------------------------------------------------------------
+r9802 | ollydbg | 2014-06-16 08:51:54 +0400 (Mon, 16 Jun 2014) | 1 line
+
+* CC: apply Huki's patch, it is a small bug fix in nativeparser.cpp, NativeParser::ParseLocalBlock(). The function ParseLocalBlock() is only supposed to be run for function blocks(bodies), but it's actually run for any kind of code block (classes, etc). So for example if the user clicks on a class declaration, the entire class block will be parsed as if it's a local block and several token info (such as the line index) will be overwritten. To fix it a check is added. See: http://forums.codeblocks.org/index.php/topic,18315.msg132338.html#msg132338
+------------------------------------------------------------------------
+r9803 | mortenmacfly | 2014-06-16 11:16:59 +0400 (Mon, 16 Jun 2014) | 1 line
+
+* pumped (wx)Scintilla to v3.4.3
+------------------------------------------------------------------------
