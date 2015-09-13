@@ -4,7 +4,6 @@ import sherlock.commit.Repository;
 
 import java.io.IOException;
 
-
 public class App {
 
 	public static void main(String[] args) throws IOException {
