@@ -22,7 +22,7 @@ public class CommitTest {
 			.getCommitChunks()
 			.flatMap(CommitSignificantContent::getSignificantLines)
 			.flatMap(CommitSignificantContent::getSignificantIdentifiers)
-			.filter(keywordsFilter)
+			.filter(CommitKeywordsFilter::test)
 			.flatMap(CommitSignificantContent::enrich)
 			.collect(toSet());
 

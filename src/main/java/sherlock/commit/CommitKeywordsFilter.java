@@ -5,18 +5,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Predicate;
 
 import static java.util.Arrays.stream;
 
-public class CommitKeywordsFilter implements Predicate<String> {
+public class CommitKeywordsFilter {
 
 	private static final Set<String> keywords = new HashSet<>();
 
-	public CommitKeywordsFilter() {
+	static {
 		try (BufferedReader keywordsReader = new BufferedReader(
 			new InputStreamReader(
-				this.getClass().getClassLoader().getResourceAsStream("keywords.txt")))) {
+				CommitKeywordsFilter.class.getClassLoader().getResourceAsStream("keywords.txt")))) {
 
 			keywordsReader
 				.lines()
@@ -28,8 +27,7 @@ public class CommitKeywordsFilter implements Predicate<String> {
 		}
 	}
 
-	@Override
-	public boolean test(String word) {
+	public static boolean test(String word) {
 		return !keywords.contains(word);
 	}
 }

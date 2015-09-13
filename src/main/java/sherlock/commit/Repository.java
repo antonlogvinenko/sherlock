@@ -10,7 +10,6 @@ import static java.util.stream.Collectors.toSet;
 public class Repository {
 
 	private final String repository;
-	private final CommitKeywordsFilter keywordsFilter = new CommitKeywordsFilter();
 
 	public Repository(String repository) {
 		this.repository = repository;
@@ -25,7 +24,7 @@ public class Repository {
 				.getCommitChunks()
 				.flatMap(CommitSignificantContent::getSignificantLines)
 				.flatMap(CommitSignificantContent::getSignificantIdentifiers)
-				.filter(keywordsFilter)
+				.filter(CommitKeywordsFilter::test)
 				.flatMap(CommitSignificantContent::enrich)
 				.collect(toSet());
 		} catch (IOException e) {

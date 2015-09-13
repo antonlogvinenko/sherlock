@@ -1,29 +1,28 @@
 package sherlock;
 
 import org.junit.Test;
-import sherlock.commit.CommitKeywordsFilter;
 
 import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
+import static sherlock.commit.CommitKeywordsFilter.test;
 
 public class KeywordFilterTest {
 
 	@Test
 	public void testKeywordsFilter() {
-		CommitKeywordsFilter f = new CommitKeywordsFilter();
-		assertFalse(f.test("class"));
-		assertFalse(f.test("synchronized"));
-		assertFalse(f.test("final"));
-		assertTrue(f.test("DnsBean"));
-		assertTrue(f.test("keywords"));
-		assertTrue(f.test("ipAddress"));
+		assertFalse(test("class"));
+		assertFalse(test("synchronized"));
+		assertFalse(test("final"));
+		assertTrue(test("DnsBean"));
+		assertTrue(test("keywords"));
+		assertTrue(test("ipAddress"));
 
-		assertFalse(f.test("coproc"));
-		assertFalse(f.test("typename"));
-		assertFalse(f.test("extern"));
-		assertFalse(f.test("die()"));
-		assertFalse(f.test("typeof"));
-		assertFalse(f.test("lambda"));
-		assertFalse(f.test("strictfp"));
+		assertFalse(test("coproc"));
+		assertFalse(test("typename"));
+		assertFalse(test("extern"));
+		assertFalse(test("die()"));
+		assertFalse(test("typeof"));
+		assertFalse(test("lambda"));
+		assertFalse(test("strictfp"));
 	}
 }
