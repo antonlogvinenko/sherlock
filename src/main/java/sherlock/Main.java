@@ -2,21 +2,44 @@ package sherlock;
 
 import sherlock.commit.Repository;
 
+import java.io.*;
 import java.util.Map;
+import java.util.Set;
 
+import static com.google.common.base.Charsets.US_ASCII;
 import static com.google.common.collect.Sets.newHashSet;
+import static com.google.common.io.Files.readLines;
+import static java.lang.String.format;
+import static sherlock.analysis.Analyzer.analyze;
+import static sherlock.log.LogVocabulary.*;
 
 public class Main {
 
-	public static void main(String[] args) {
-		if (args.length != 5) {
-			System.out.println("Usage: java -jar sherlock.jar r100 r120 http://svn.company.com/project/trunk/ username password");
+	public static void main(String[] args) throws FileNotFoundException {
+		if (args.length != 6) {
+			System.out.println("Usage: java -jar sherlock.jar error.log r100 r120 http://svn.company.com/project/trunk/ username passwordFile");
 			System.exit(0);
 		}
+		String password = "nopassword";
+		try {
+			password = readLines(new File(args[5]), US_ASCII).get(0);
+		} catch (IOException e) {
+			System.out.println("File with password not found; specify correct file to use password");
+		}
 		Map<String, Repository.CommitDetails> commitsVocabularies =
-			new Repository(args[2], args[3], args[4], newHashSet("buildbot", "pba-builder"))
-				.getCommitsVocabulary(args[0], args[1]);
+			new Repository(args[3], args[4], password, newHashSet("buildbot", "pba-builder"))
+				.getCommitsVocabulary(args[1], args[2]);
 
-		commitsVocabularies.entrySet().stream().forEach(System.out::println);
+		Set<String> logVocabulary = getVocabulary(new FileInputStream(args[0]));
+
+		Map<String, Integer> analysis = analyze(logVocabulary, commitsVocabularies);
+
+		analysis.entrySet().stream()
+			.forEach(e -> System.out.println(format("%s\t%s", e.getValue(), e.getKey())));
+
+		System.out.println(analysis);
+
+//		System.out.println(logVocabulary);
+//		commitsVocabularies.entrySet().stream().forEach(System.out::println);
 	}
 }

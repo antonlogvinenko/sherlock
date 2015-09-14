@@ -15,9 +15,9 @@ From commits
 Prototype:
 - [DONE] build vocabulary for error log
 - [DONE] make jar binary with maven, accept parameters from console
+- [DONE] authentication support
 - intersect commits/error
 - find metric to sort most dangerous commits
-- authentication support
 - try to use this tool, make observations
 
 From error log
