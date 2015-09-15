@@ -18,12 +18,13 @@ Prototype:
 - [DONE] authentication support
 - [DONE] intersect commits/error
 - [DONE] sort final metric
-- find proper metric
-- try to use this tool, make observations
 
 From error log
 - download log file
 - learn to find lines with possible errors, extract several next lines
 
-Improvements (not critical)
+Improvements
+- svn info finds commits like branching that aren't relevant - useless info but appear have high metric value
+- find proper metric
+- try to use this tool, make observations
 - binary files in diff have another format
