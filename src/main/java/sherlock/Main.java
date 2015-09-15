@@ -5,13 +5,11 @@ import sherlock.commit.Repository;
 import java.io.*;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 
 import static com.google.common.base.Charsets.US_ASCII;
 import static com.google.common.collect.Sets.newHashSet;
 import static com.google.common.io.Files.readLines;
 import static java.lang.String.format;
-import static java.util.Comparator.comparingInt;
 import static sherlock.analysis.Analyzer.analyze;
 import static sherlock.log.LogVocabulary.*;
 
