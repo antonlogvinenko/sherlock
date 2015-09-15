@@ -10,14 +10,15 @@ From commits
 - [DONE] enriched vocabulary - enriched and joined set for commit
 - [DONE] get commits in range
 - [DONE] for each commit in range get author and submit fetched InputStream to another pool
-- [DONE] get map <author, set<word>>
+- [DONE] get map author .-> set[word]
 
 Prototype:
 - [DONE] build vocabulary for error log
 - [DONE] make jar binary with maven, accept parameters from console
 - [DONE] authentication support
-- intersect commits/error
-- find metric to sort most dangerous commits
+- [DONE] intersect commits/error
+- [DONE] sort final metric
+- find proper metric
 - try to use this tool, make observations
 
 From error log
@@ -25,5 +26,4 @@ From error log
 - learn to find lines with possible errors, extract several next lines
 
 Improvements (not critical)
-- set of insignificant words per language
 - binary files in diff have another format
