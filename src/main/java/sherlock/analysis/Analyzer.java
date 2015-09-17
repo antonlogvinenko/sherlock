@@ -19,7 +19,7 @@ public class Analyzer {
 			.entrySet()
 			.stream()
 			.collect(toMap(
-				e -> format("%s %s", e.getKey(), e.getValue().author),
+				e -> format("%s by %s", e.getKey(), e.getValue().author),
 				e -> intersection(logVocabulary, e.getValue().words).size()
 			));
 

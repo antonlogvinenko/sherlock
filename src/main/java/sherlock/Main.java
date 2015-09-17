@@ -36,7 +36,7 @@ public class Main {
 
 		int norm = logVocabulary.size();
 
-		System.out.println("Probability\tCommit&author");
+		System.out.println("Similarity\tCommit");
 		analysis.entrySet().stream()
 			.forEach(e -> System.out.println(format("%s\t\t%s", prettyPrintNormalized(norm, e.getValue()), e.getKey())));
 	}
